@@ -6,3 +6,5 @@ O que eu vou aprender na Trybe:
 -Java
 -Front-End
 -Back-End
+-GitHub
+-JavaScript
