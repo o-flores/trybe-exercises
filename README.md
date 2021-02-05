@@ -1,0 +1,1 @@
+Este é um diretório para guardar os exercicios feitos durante o curso da Trybe S2!
