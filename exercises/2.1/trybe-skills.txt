@@ -8,4 +8,3 @@ O que eu vou aprender na Trybe:
 -Back-End
 -GitHub
 -JavaScript
--Soft Skills
