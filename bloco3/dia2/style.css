@@ -1,0 +1,32 @@
+h1{
+    font-size: 80px;
+    color:purple;
+    font-family: sans-serif;
+    text-align: center;
+    text-decoration: line-through;
+    background-color: orange;
+}
+ul{
+    background-color: pink;
+    font-style: oblique;
+    line-height: 48px;
+    color:royalblue;
+}
+.mudar{
+    background-color: salmon;
+}
+p{
+    font-weight: 600;
+    font-size: 3em;
+    text-decoration: overline;
+    color: papayawhip;
+}
+body{
+    font-size: 18px;
+}
+#dois{
+    color: seagreen;
+}
+#tres{
+    color: snow;
+}
