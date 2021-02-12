@@ -1,0 +1,16 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+h1, p {
+    text-align: center;
+}
+li:hover{
+    background-color: coral;
+}
+li:active{
+    font-family: monospace;
+    color: white;
+}
+ol, ul{
+    list-style: none;
+} 
