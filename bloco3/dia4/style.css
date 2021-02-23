@@ -62,12 +62,22 @@ p{
     width: 250px;
     margin-left: 20px;
 }
+iframe{
+    position: fixed;
+    top: 220px;
+    margin-left: 5px;
+}
 aside{
     right: 0%;
     padding:10px;
-    width: 22%;
-    background-color: grey;
-    height:100%;
-    top: 120px;
+    width: 23%;
+    background-color: #edc7b7;
+    height:200%;
+    top: 121px;
+    position:absolute;
+}
+aside p{
     position: fixed;
+    padding-right: 10px;
+    padding-top: 20px;
 }
