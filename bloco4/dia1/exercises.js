@@ -29,3 +29,13 @@ if (c>d && c>e) {
     maior = e;
 }
 console.log('o maior número é ' + maior );
+
+let isPositive = -0;
+if (isPositive < 0) {
+    console.log('negative');
+}else if (isPositive > 0) {
+    console.log('positive');
+}else {
+    console.log('zero');
+}
+
