@@ -16,3 +16,16 @@ if (num1 > num2) {
 } else {
     console.log('num2 é maior');
 }
+
+let c = 3;
+let d = 24;
+let e = 2;
+let maior;
+if (c>d && c>e) {
+    maior = c;
+}else if (d>c && d>e) {
+    maior = d;
+}else {
+    maior = e;
+}
+console.log('o maior número é ' + maior );
