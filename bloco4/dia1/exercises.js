@@ -73,20 +73,27 @@ switch (peca) {
         break;
 } 
 
-let notaEmNumero = 59;
+let notaEmNumero = 40;
 let notaEmLetra;
-if(notaEmNumero >=90) {
+if (notaEmNumero>100 || notaEmNumero<0) {
+    console.log('nota errada');
+}else if(notaEmNumero >=90) {
     notaEmLetra = 'A';
+    console.log('A nota do aluno é: ' + notaEmLetra);
 }else if(notaEmNumero >=80) {
     notaEmLetra = 'B';
+    console.log('A nota do aluno é: ' + notaEmLetra);
 }else if(notaEmNumero >=70) {
     notaEmLetra = 'C';
+    console.log('A nota do aluno é: ' + notaEmLetra);
 }else if(notaEmNumero >=60) {
     notaEmLetra = 'D';
+    console.log('A nota do aluno é: ' + notaEmLetra);
 }else if(notaEmNumero >=50) {
     notaEmLetra = 'E';
+    console.log('A nota do aluno é: ' + notaEmLetra);
 }else {
-    notaEmLetra = 'F'
+    notaEmLetra = 'F';
+    console.log('A nota do aluno é: ' + notaEmLetra);
 }
 
-console.log('A nota do aluno é: ' + notaEmLetra);
