@@ -47,3 +47,29 @@ if ((ang1+ang2+ang3) == 180) {
 }else {
     console.log(false);
 }
+let peca1 = 'PEAO';
+let peca = peca1.toLowerCase();
+switch (peca) {
+    case 'peao':
+        console.log(peca + ' se movimenta com movimentos para frente e come na diagonal');
+        break;
+    case 'bispo':
+        console.log(peca + ' se movimenta com movimentos na diagonal');
+        break;
+    case 'torre':
+        console.log( peca + ' se movimenta com movimentos para frente e para lateral');
+        break;
+    case 'cavalo':
+        console.log(peca + ' se movimenta com movimentos em L: 3x2 ou 2x3');
+        break;
+    case 'rainha':
+        console.log( peca + ' se movimenta em qualquer direção menos em L');
+        break;
+    case 'rei':
+        console.log(peca + ' se movimenta um espaço em qualquer direção');
+        break;
+    default:
+        console.log(peca + 'nao existe no tabuleiro de xadrez')
+        break;
+} 
+
