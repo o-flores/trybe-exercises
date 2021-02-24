@@ -39,3 +39,11 @@ if (isPositive < 0) {
     console.log('zero');
 }
 
+let ang1 = 45.7;
+let ang2 = 27.90;
+let ang3 = 92;
+if ((ang1+ang2+ang3) == 180) {
+    console.log(true);
+}else {
+    console.log(false);
+}
