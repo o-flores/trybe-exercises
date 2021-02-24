@@ -73,3 +73,20 @@ switch (peca) {
         break;
 } 
 
+let notaEmNumero = 59;
+let notaEmLetra;
+if(notaEmNumero >=90) {
+    notaEmLetra = 'A';
+}else if(notaEmNumero >=80) {
+    notaEmLetra = 'B';
+}else if(notaEmNumero >=70) {
+    notaEmLetra = 'C';
+}else if(notaEmNumero >=60) {
+    notaEmLetra = 'D';
+}else if(notaEmNumero >=50) {
+    notaEmLetra = 'E';
+}else {
+    notaEmLetra = 'F'
+}
+
+console.log('A nota do aluno é: ' + notaEmLetra);
