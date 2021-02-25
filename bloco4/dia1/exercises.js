@@ -118,4 +118,46 @@ if ( (n4%2 !== 0) || (n5%2 !== 0) || (n6%2 !== 0)) {
 let custo = 450.80;
 let venda = 1000.00;
 let lucro = venda - (custo*=1.2);
-console.log('lucro total de: ' + lucro*1000);
+if(custo < 0 || venda <0) {
+    console.log('valores menores que 0')
+}else {
+    console.log('lucro total de: ' + lucro*1000);
+}
+
+let salarioBruto = 6000;
+let salarioDescontado;
+let salarioLiquido;
+let aliquotaINSS;
+let aliquotaIR;
+let parcelaIR
+if (salarioBruto> 5189.82 ) {
+    salarioDescontado = salarioBruto-570.88;
+}else if(salarioBruto> 2594.93 ) {
+         aliquotaINSS = 0.11;
+         salarioDescontado = salarioBruto*=(1-aliquotaINSS)
+}else if (salarioBruto> 1556.95 ) {
+         aliquotaINSS = 0.09;
+         salarioDescontado = salarioBruto*=(1-aliquotaINSS)
+}else {
+    aliquotaINSS = 0.08;
+    salarioDescontado = salarioBruto*=(1-aliquotaINSS)
+}
+if (salarioDescontado > 4664.68) {
+    aliquotaIR = 0.275;
+    parcelaIR = 869.36;
+}else if (salarioDescontado > 3751.06) {
+          aliquotaIR = 0.225;
+          parcelaIR = 636.13;
+}else if (salarioDescontado > 2826.66) {
+          aliquotaIR = 0.15;
+          parcelaIR = 354.8;
+
+}else if (salarioDescontado > 1903.99) {
+          aliquotaIR = 0.075;
+          parcelaIR = 142.8;
+}else{
+    aliquotaIR = 0;
+    parcelaIR = 0;
+}
+salarioLiquido = salarioDescontado - ((salarioDescontado*aliquotaIR) - parcelaIR);
+console.log('o salario liquido é igual a = ' + salarioLiquido);
