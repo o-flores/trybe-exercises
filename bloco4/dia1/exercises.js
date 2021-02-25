@@ -114,3 +114,8 @@ if ( (n4%2 !== 0) || (n5%2 !== 0) || (n6%2 !== 0)) {
 }else {
     console.log('par');
 }
+
+let custo = 450.80;
+let venda = 1000.00;
+let lucro = venda - (custo*=1.2);
+console.log('lucro total de: ' + lucro*1000);
