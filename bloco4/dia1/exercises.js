@@ -105,3 +105,12 @@ if ( (n1%2 == 0) || (n2%2 == 0) || (n3%2 == 0)) {
 }else {
     console.log(false);
 }
+
+let n4=4;
+let n5=53;
+let n6=92;
+if ( (n4%2 !== 0) || (n5%2 !== 0) || (n6%2 !== 0)) {
+    console.log('impar');
+}else {
+    console.log('par');
+}
