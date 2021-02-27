@@ -58,7 +58,6 @@ console.log('----------------------------------');
 //Exercicio 4
 
 const piramide= 20;
-let linhaspiramide;
 let metadeMatriz;
 let limiteEsquerdo;
 let limiteDireito;
