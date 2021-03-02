@@ -73,4 +73,4 @@ function VerifiesEndWord (word,endWord) {
         return false;
     }
 }
- console.log(VerifiesEndWord('orlando', 'lando'));
+
