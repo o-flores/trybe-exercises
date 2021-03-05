@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+        let h1 = document.createElement('h1');
+        h1.innerText = 'Exercício 5.2 - JavaScript DOM';
+        document.body.appendChild(h1);
+
+        let divOne = document.createElement('div');
+        divOne.className = 'main-content';
+        document.body.appendChild(divOne);
+
+        let divTwo = document.createElement('div');
+        divTwo.className = 'center-content';
+        document.querySelector('.main-content').appendChild(divTwo);
+
+        let paragraphOne = document.createElement('p');
+        paragraphOne.innerHTML = 'o gatin é muito doido!';
+        document.querySelector('.center-content').appendChild(paragraphOne);
+
+        let divThree = document.createElement('div');
+        divThree.className = 'left-content';
+        document.querySelector('.main-content').appendChild(divThree);
+
+        let divFour = document.createElement('div');
+        divFour.className = 'right-content';
+        document.querySelector('.main-content').appendChild(divFour);
+
+        let imgOne = document.createElement('img');
+        imgOne.src = 'https://picsum.photos/200';
+        imgOne.className = 'small-image';
+        document.querySelector('.left-content').appendChild(imgOne);
+
+        let ulOne = document.createElement('ul')
+        document.querySelector('.right-content').appendChild(ulOne);
+        let numbersList = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+        for (let i = 0; i < numbersList.length; i += 1) {
+            let numberItem = numbersList[i];
+
+            let numberListItem = document.createElement('li');
+            numberListItem.innerText = numberItem;
+            document.querySelector('ul').appendChild(numberListItem);
+        }
+        
+        let h3One = document.createElement('h3');
+        let h3Two = document.createElement('h3');
+        let h3Three = document.createElement('h3');
+
+        h3One.innerText = 'h3 Um';
+        h3Two.innerText = 'h3 Dois';
+        h3Three.innerText = 'h3 Tres';
+
+        document.querySelector('.main-content').appendChild(h3One);
+        document.querySelector('.main-content').appendChild(h3Two);
+        document.querySelector('.main-content').appendChild(h3Three);
+
+        h1.className = 'title';
+
+        h3One.className = 'description';
+        h3Two.className = 'description';
+        h3Three.className = 'description';
+
+        document.querySelector('.main-content').removeChild(divThree);
+
+        divFour.style.marginRight = 'auto';
+
+        divTwo.parentNode.style.backgroundColor = 'green';
+
+        let list = document.querySelectorAll('li');
+        list[list.length-1].remove();
+
+
+        let list2 = document.querySelectorAll('li');
+        list2[list2.length-1].remove();
+
+
+    </script>
+  </body>
+</html>
