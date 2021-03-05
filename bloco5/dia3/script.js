@@ -37,3 +37,14 @@ function createDaysOfTheWeek() {
   };
 
   createDaysOfTheMonth();
+
+  function holidays(string) {
+    const botaoPai = document.getElementsByClassName('buttons-container')[0];
+    const botao = document.createElement('button');
+    botaoPai.appendChild(botao);
+
+    botao.innerText = string;
+    botao.id = 'btn-holiday';
+  }
+
+  holidays('Feriados');
