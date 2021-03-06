@@ -138,6 +138,21 @@ addColorMyTasks('red');
 addSpanTasks('Trabalhar');
 addColorMyTasks('blue');
 
+function addTaskSelected() {
+  let selectedTask = document.getElementsByClassName('task selected');
+  let tasks = document.querySelectorAll('.task');
+
+  for(let i = 0; i < tasks.length; i += 1) {
+    tasks[i].addEventListener('click', function(){
+      if(selectedTask.length === 0) {
+        tasks[i].className = 'task selected';
+      } else {
+        tasks[i].className = 'task';
+      }
+    })
+  }
+}
+addTaskSelected();
 
 // function addTasks() {
 //   let tasks = document.getElementsByClassName('my-tasks')[0];
