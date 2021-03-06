@@ -111,25 +111,14 @@ function mouseOutDays() {
 mouseOutDays();
 mouseOverDays();
 
-function addTasks() {
-  let tasks = document.getElementsByClassName('my-tasks')[0];
-  let addBtn = document.getElementById('btn-add');
-  let inputText = document.getElementById('task-input');
+function addSpanTasks(string) {
+  let tasksContainer = document.querySelector('.my-tasks');
+  let span = document.createElement('span');
+  span.innerText = string;
 
-  addBtn.addEventListener('click', function(){
-    let span = document.createElement('span');
-    span.innerText = inputText.value;
-
-    tasks.appendChild(span);
-
-    let br = document.createElement('br');
-    tasks.appendChild(br)
-
-    inputText.value = '';
-  })
+  tasksContainer.appendChild(span);
 }
-
-addTasks();
+addSpanTasks('cozinhar');
 
 function addColorMyTasks(color) {
   let tasksContainer = document.querySelector('.my-tasks');
@@ -138,9 +127,36 @@ function addColorMyTasks(color) {
   div.style.backgroundColor = color;
 
   tasksContainer.appendChild(div);
+
+  let br = document.createElement('br');
+  tasksContainer.appendChild(br);
 }
 
 addColorMyTasks('green');
+addSpanTasks('Estudar');
+addColorMyTasks('red');
+addSpanTasks('Trabalhar');
+addColorMyTasks('blue');
+
+
+// function addTasks() {
+//   let tasks = document.getElementsByClassName('my-tasks')[0];
+//   let addBtn = document.getElementById('btn-add');
+//   let inputText = document.getElementById('task-input');
+
+//   addBtn.addEventListener('click', function(){
+//     let span = document.createElement('span');
+//     span.innerText = inputText.value;
+
+//     tasks.appendChild(span);
+
+//     let br = document.createElement('br');
+//     tasks.appendChild(br)
+
+//     inputText.value = '';
+//   })
+// }
+
 
 
 
