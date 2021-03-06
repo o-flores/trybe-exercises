@@ -111,3 +111,23 @@ function mouseOutDays() {
 mouseOutDays();
 mouseOverDays();
 
+function addTasks() {
+  let tasks = document.getElementsByClassName('my-tasks')[0];
+  let addBtn = document.getElementById('btn-add');
+  let inputText = document.getElementById('task-input');
+
+  addBtn.addEventListener('click', function(){
+    let span = document.createElement('span');
+    span.innerText = inputText.value;
+
+    tasks.appendChild(span);
+
+    let br = document.createElement('br');
+    tasks.appendChild(br)
+
+    inputText.value = '';
+  })
+}
+
+addTasks();
+
