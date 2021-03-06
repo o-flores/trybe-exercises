@@ -154,6 +154,23 @@ function addTaskSelected() {
 }
 addTaskSelected();
 
+
+function addColorOfTaskSelected() {
+  let selectedTask = document.getElementsByClassName('task selected');
+  let days = document.getElementsByClassName('day');
+
+  for (let i = 0; i < days.length; i += 1) {
+    days[i].addEventListener('click', function(){
+      if(selectedTask.length === 0) {
+        days[i].style.color = 'rgb(119,119,119)';
+      } else {
+        days[i].style.color = selectedTask[0].style.backgroundColor;
+      }
+    })
+  }
+}
+addColorOfTaskSelected();
+
 // function addTasks() {
 //   let tasks = document.getElementsByClassName('my-tasks')[0];
 //   let addBtn = document.getElementById('btn-add');
