@@ -88,3 +88,26 @@ function changeFridayDays() {
 const fridayBtn = document.getElementById('btn-friday');
 fridayBtn.addEventListener('click', changeFridayDays)
 
+
+
+function mouseOverDays() {
+  const monthDays = document.getElementById('days');
+
+  monthDays.addEventListener('mouseover', function(evt) {
+    evt.target.style.fontSize = '30px';
+    evt.target.style.fontWeight = '800';
+  })
+};
+
+function mouseOutDays() {
+  const monthDays = document.getElementById('days');
+
+  monthDays.addEventListener('mouseout', function(evt) {
+    evt.target.style.fontSize = '20px';
+    evt.target.style.fontWeight = '200';
+  })
+};
+
+mouseOutDays();
+mouseOverDays();
+
