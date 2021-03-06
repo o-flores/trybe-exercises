@@ -171,24 +171,32 @@ function addColorOfTaskSelected() {
 }
 addColorOfTaskSelected();
 
-// function addTasks() {
-//   let tasks = document.getElementsByClassName('my-tasks')[0];
-//   let addBtn = document.getElementById('btn-add');
-//   let inputText = document.getElementById('task-input');
+function addTasks() {
+  let ul = document.getElementsByClassName('task-list')[0];
+  let addBtn = document.getElementById('btn-add');
+  let inputText = document.getElementById('task-input');
 
-//   addBtn.addEventListener('click', function(){
-//     let span = document.createElement('span');
-//     span.innerText = inputText.value;
+  addBtn.addEventListener('click', function(){
+    let li = document.createElement('li');
+    li.innerText = inputText.value;
+    if(li.innerText.length > 0) {
+      ul.appendChild(li);
+      inputText.value = '';
+    } else {
+      alert('digite pelo menos 1 caractere');
+    }
+  })
 
-//     tasks.appendChild(span);
-
-//     let br = document.createElement('br');
-//     tasks.appendChild(br)
-
-//     inputText.value = '';
-//   })
-// }
-
+  inputText.addEventListener('keydown', function(event){
+    if(event.key === 'Enter' && inputText.value.length > 0) {
+      let li = document.createElement('li');
+      li.innerText = inputText.value;
+      ul.appendChild(li);
+      inputText.value = '';
+    }
+  })
+}
+addTasks();
 
 
 
