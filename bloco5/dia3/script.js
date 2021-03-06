@@ -63,3 +63,14 @@ function createDaysOfTheWeek() {
   }
   const botaoFeriados = document.getElementById('btn-holiday');
   botaoFeriados.addEventListener('click', changeColorsHolidayDays);
+
+function addFridayBtn(string) {
+  let btnParent = document.getElementsByClassName('buttons-container')[0];
+  let btn = document.createElement('button');
+  btn.id = 'btn-friday';
+  btn.innerText = string;
+  btnParent.appendChild(btn);
+}
+
+addFridayBtn('Friday');
+
