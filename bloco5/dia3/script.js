@@ -131,3 +131,16 @@ function addTasks() {
 
 addTasks();
 
+function addColorMyTasks(color) {
+  let tasksContainer = document.querySelector('.my-tasks');
+  let div = document.createElement('div');
+  div.className = 'task';
+  div.style.backgroundColor = color;
+
+  tasksContainer.appendChild(div);
+}
+
+addColorMyTasks('green');
+
+
+
