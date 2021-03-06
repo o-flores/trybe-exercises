@@ -48,3 +48,18 @@ function createDaysOfTheWeek() {
   }
 
   holidays('Feriados');
+
+  function changeColorsHolidayDays() {
+    let listClass = document.getElementsByClassName('holiday');
+    for (i=0; i < listClass.length; i += 1) {
+      if(listClass[i].style.backgroundColor === 'green') {
+        listClass[i].style.backgroundColor = 'rgb(238,238,238)';
+        console.log('trocando para a cor original');
+      } else {
+        listClass[i].style.backgroundColor = 'green';
+        console.log('trocando para verde');
+      }
+    }
+  }
+  const botaoFeriados = document.getElementById('btn-holiday');
+  botaoFeriados.addEventListener('click', changeColorsHolidayDays);
