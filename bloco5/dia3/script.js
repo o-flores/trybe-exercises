@@ -66,11 +66,25 @@ function createDaysOfTheWeek() {
 
 function addFridayBtn(string) {
   let btnParent = document.getElementsByClassName('buttons-container')[0];
-  let btn = document.createElement('button');
+  const btn = document.createElement('button');
   btn.id = 'btn-friday';
   btn.innerText = string;
   btnParent.appendChild(btn);
 }
 
-addFridayBtn('Friday');
+addFridayBtn('Sexta-feira');
+
+function changeFridayDays() {
+  const dezFridaysDays = [4, 11, 18, 25];
+  const friday = document.getElementsByClassName('friday');
+  for (i=0; i < friday.length; i+=1) {
+    if (friday[i].innerText !== 'Sextou') {
+      friday[i].innerText = 'Sextou'
+    } else {
+      friday[i].innerText = dezFridaysDays[i];
+    }
+  }
+}
+const fridayBtn = document.getElementById('btn-friday');
+fridayBtn.addEventListener('click', changeFridayDays)
 
