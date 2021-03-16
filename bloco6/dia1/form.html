@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULÁRIO</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Informações pessoais</legend>
+        <label for="name">Nome Completo: </label>
+        <input type="text" name="name" id="name" required maxlength="40">
+
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required maxlength="50">
+
+        <label for="cpf">CPF: </label>
+        <input type="text" name="cpf" id="cpf" required maxlength="11">
+
+        <label for="adress">Endereço completo: </label>
+        <input type="text" name="adress" id="adress" required maxlength="200">
+
+        <label for="city">Cidade: </label>
+        <input type="text" name="city" id="city" required maxlength="28">
+
+        <label for="state">Selecione o estado: </label>
+        <select name="state" id="state" required></select>
+        
+        <fieldset>
+            <legend>Tipo de casa</legend>
+            
+            <input type="radio" name="house-type" id="house" required>
+            <label for="house">Casa</label>
+
+            <input type="radio" name="house-type" id="apt" required>
+            <label for="apt">Apartamento</label>
+        </fieldset>
+        
+    </fieldset>
+
+    <fieldset>
+        <legend>Histórico curricular</legend>
+        
+        <label for="resume"></label>
+        <textarea maxlength="1000" placeholder="Escreva um breve resumo sobre a sua trajetória profissional" name="resume" id="resume" cols="30" rows="10" required></textarea>
+
+        <label for="position">Cargo: </label>
+        <input type="text" name="position" id="position" maxlength="40" required>
+
+        <label for="position-description">Descrição do cargo: </label>
+        <input type="text" name="decription" id="position-description" maxlength="500" required>
+
+        <label for="startdate">Data de ínicio: </label>
+        <input type="text" name="startdate" id="startdate" placeholder="dd/mm/yyyy" required>
+    </fieldset>
+
+    <section>
+        <button id="btn-clear">Limpar</button>
+    </section>
+    <script src="/script.js"></script>
+</body>
+</html>
