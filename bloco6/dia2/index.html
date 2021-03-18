@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULÁRIO</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="/node_modules/bulma/css/bulma.min.css">
+</head>
+<body>
+    <form action="">
+        <h1 class="title">Informações pessoais</h1>
+
+        <label class="label" for="name">Nome Completo: </label>
+        <div class="field">
+            <div class="control">
+                <input class="input is-small" type="text" name="name" id="name" required maxlength="40">
+            </div>
+        </div>
+        <label class="label" for="email">Email: </label>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input is-small" type="email" name="email" id="email" required maxlength="50">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+            </p>
+        </div>
+        <label class="label" for="cpf">CPF: </label>
+        <div class="field">
+            <div class="control">
+                <input class="input is-small" type="text" name="cpf" id="cpf" required maxlength="11">
+            </div>
+        </div>
+        <label class="label" for="adress">Endereço completo: </label>
+        <div class="control">
+            <input class="input is-small" type="text" name="adress" id="adress" required maxlength="200">
+        </div>
+        <label class="label" for="city">Cidade: </label>
+        <div class="control">
+            <input class="input is-small" type="text" name="city" id="city" required maxlength="28">
+        </div>
+        <label class="label" for="state">Selecione o estado: </label>
+        <div class="field">
+            <div class="control">
+                <select name="state" id="state" required></select>
+            </div>   
+        </div> 
+        <label class="label">Tipo de casa: </label>
+        <div class="field"> 
+            <div class="control">
+                <input type="radio" name="house-type" id="house" required>
+                <label for="house">Casa</label>
+
+                <input type="radio" name="house-type" id="apt" required>
+                <label for="apt">Apartamento</label>
+            </div>
+        </div>
+        <label class="label">Histórico curricular: </label>
+            
+        <label for="resume"></label>
+        <textarea class="textarea is-small" maxlength="1000" placeholder="Escreva um breve resumo sobre a sua trajetória profissional" name="resume" id="resume" cols="30" rows="10" required></textarea>
+
+        <label class="label" for="position">Cargo: </label>
+        <div class="field">
+            <div class="control">
+                <input class="input is-small" type="text" name="position" id="position" maxlength="40" required>
+            </div>  
+        </div>
+        <label class="label" for="position-description">Descrição do cargo: </label>
+        <div class="field">
+            <div class="control">
+                <input class="input is-small" type="text" name="decription" id="position-description" maxlength="500" required>
+            </div>
+        </div>
+        <label class="label" for="startdate">Data de ínicio: </label>
+        <div class="field">
+            <div class="control">
+                <input class="input is-small" type="date" name="stardate" id="stardate">
+            </div>
+        </div>
+        <div class="field is-grouped buttons">
+            <input class="button is-success is-light is-outlined is-rounded" type="submit" value="Enviar" id="btn-clear"></input>
+            <input class="button is-danger is-light is-outlined is-rounded" type="reset" value="Cancelar">
+        </div>
+    </form>
+    <script src="/script.js"></script>
+</body>
+</html>
