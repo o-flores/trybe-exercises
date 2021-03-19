@@ -1,0 +1,29 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+h1, h2, p {
+  text-align: center;
+}
+
+p {
+  margin: 10px 20px;
+  text-align: justify;
+}
+
+@media screen and (max-width: 375px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  li, p {
+    font-size: 15px;
+  }
+}
