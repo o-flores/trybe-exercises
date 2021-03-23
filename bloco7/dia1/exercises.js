@@ -1,4 +1,9 @@
-const oddsAndEvensArray = [13, 3, 4, 10, 7, 2];
-const oddsAndEvens = (array) => array.sort(function(a,b){return a - b});
+const factorial = (number) => {
+  let result = 1;
+  for (let index = 2; index <= number; index += 1){
+    result *= index;
+  }
+  return result
+}
 
-console.log(oddsAndEvens(oddsAndEvensArray));
+console.log(factorial(4));
