@@ -24,3 +24,11 @@ function addKey(object, key, value) {
 
 addKey(lesson2, 'turno', 'manhã');
 console.log(lesson2)
+
+function listKeys(object) {
+  for (key in object) {
+    console.log(key)
+  }
+}
+
+listKeys(lesson2);
