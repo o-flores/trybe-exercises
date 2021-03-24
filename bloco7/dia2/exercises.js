@@ -48,3 +48,13 @@ getObjectValues(lesson2);
 console.log('---------------------------------------')
 const allLessons = Object.assign({}, {lesson1, lesson2, lesson3});
 console.log(allLessons);
+
+function getTotalStudents(object) {
+let sum = 0;
+  for (key in object) {
+    sum += object[key]['numeroEstudantes'];
+  }
+  return sum;
+}
+
+console.log(getTotalStudents(allLessons));
