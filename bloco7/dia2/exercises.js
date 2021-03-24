@@ -77,3 +77,17 @@ function verifyPair(object, key, value) {
 }
 
 console.log(verifyPair(lesson1, 'turno', 'manhã'))
+console.log('-------------------------------------')
+
+function countSubjectStudents(object, subject) {
+  let total = 0;
+  const keys = Object.keys(object)
+  for (key in keys) {
+    if (object[keys[key]].materia === subject) {
+      total += object[keys[key]].numeroEstudantes; 
+    }
+  }
+   return `O número total de aluno na materia: ${subject} é de ${total}`
+}
+
+console.log(countSubjectStudents(allLessons, 'Matemática'));
