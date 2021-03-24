@@ -65,3 +65,15 @@ function getValueByNumber(object, number) {
 }
 
 getValueByNumber(lesson3,1)
+
+function verifyPair(object, key, value) {
+  const entries = Object.entries(object);
+  for (pairs of entries) {
+    if (pairs[0] === key && pairs[1] === value) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(verifyPair(lesson1, 'turno', 'manhã'))
