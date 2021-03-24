@@ -58,3 +58,10 @@ let sum = 0;
 }
 
 console.log(getTotalStudents(allLessons));
+
+function getValueByNumber(object, number) {
+  const values = Object.values(object);
+  console.log(values[number]);
+}
+
+getValueByNumber(lesson3,1)
