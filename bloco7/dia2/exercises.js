@@ -1,5 +1,5 @@
 const lesson1 = {
-  materia: 'Matemática',
+  materia: 'História',
   numeroEstudantes: 20,
   professor: 'Maria Clara',
   turno: 'manhã',
@@ -91,3 +91,24 @@ function countSubjectStudents(object, subject) {
 }
 
 console.log(countSubjectStudents(allLessons, 'Matemática'));
+
+
+function createReport(object, teacher) {
+  const report = {};
+  const subjects = [];
+  let total = 0;
+  // cria array com as materias dadas pelo professor
+  const lessons = Object.values(object);
+  for (index in lessons) {
+    if (lessons[index].professor === teacher) {
+      subjects.push(lessons[index].materia)
+      total += lessons[index].numeroEstudantes;
+    }
+  }
+  report.professor = teacher;
+  report.aulas = subjects;
+  report.estudantes = total;
+  return report;
+}
+
+console.log(createReport(allLessons, 'Maria Clara'));
