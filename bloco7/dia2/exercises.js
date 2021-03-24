@@ -38,3 +38,9 @@ function getObjectSize(object) {
 }
 
 getObjectSize(lesson2);
+
+function getObjectValues(object) {
+  console.log(Object.values(object));
+}
+
+getObjectValues(lesson2);
