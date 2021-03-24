@@ -32,3 +32,9 @@ function listKeys(object) {
 }
 
 listKeys(lesson2);
+
+function getObjectSize(object) {
+  console.log(Object.keys(object).length);
+}
+
+getObjectSize(lesson2);
