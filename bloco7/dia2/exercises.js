@@ -44,3 +44,7 @@ function getObjectValues(object) {
 }
 
 getObjectValues(lesson2);
+
+console.log('---------------------------------------')
+const allLessons = Object.assign({}, {lesson1, lesson2, lesson3});
+console.log(allLessons);
