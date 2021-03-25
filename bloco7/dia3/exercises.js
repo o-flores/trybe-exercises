@@ -30,3 +30,21 @@ myRemove(teste,2);
 assert.deepStrictEqual(teste,[1,2,3,4,5]);
 
 assert.deepStrictEqual(myRemove([1,2,3,4], 5), [1,2,3,4]);
+
+
+function myRemoveWithoutCopy(arr,item) {
+  for (let index = 0; index <= arr.length; index +=1) {
+    if (arr[index] === item) {
+      arr.splice(index,1);
+    }
+  }
+  return arr;
+}
+
+assert.deepStrictEqual(myRemoveWithoutCopy([1,2,3,4],3),[1,2,4]);
+assert.notDeepStrictEqual(myRemoveWithoutCopy([1,2,3,4],3),[1,2,3,4]);
+assert.deepStrictEqual(myRemoveWithoutCopy([1,2,3,4],5),[1,2,3,4]);
+
+const teste2 = [1,2,3,4,5];
+myRemoveWithoutCopy(teste2,2);
+assert.notDeepStrictEqual(teste2,[1,2,3,4,5]);
