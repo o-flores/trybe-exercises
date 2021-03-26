@@ -48,3 +48,17 @@ assert.deepStrictEqual(myRemoveWithoutCopy([1,2,3,4],5),[1,2,3,4]);
 const teste2 = [1,2,3,4,5];
 myRemoveWithoutCopy(teste2,2);
 assert.notDeepStrictEqual(teste2,[1,2,3,4,5]);
+
+function secondThirdSmallest(array) {
+  let results = []
+  array.sort(function (x, y) {
+      return x - y;
+  });
+  results = [array[1], array[2]];
+  return results;
+};
+
+const parameter = [4, 10, 32, 9, 21, 90, 5, 11, 8, 6];
+const result = [5, 6];
+
+assert.deepStrictEqual(secondThirdSmallest(parameter),result);
