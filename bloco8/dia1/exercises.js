@@ -1,17 +1,15 @@
-const createEmployee = (name) => {
-  return {
-    nomeCompleto: name,
-    email: `${name.split(' ')[0]}@trybe.com`,
+const generateRandomNumber = () => Math.round(Math.random()*5);
+
+const verifyNumber = (number1, number2) => {
+  if (number1 === number2) {
+    return `Parabéns você ganhou`;
   }
+  return `Tente novamente`;
 }
 
-const newEmployee = () => {
-  const employees = {
-    id1: createEmployee('Pedro Guerra'),
-    id2: createEmployee('Luiza Drumond'),
-    id3: createEmployee('Carla Paiva'),
-  }
-  return employees;
+const checkSorteio = (numero, verifyNumber) => {
+  let numeroSorteado = generateRandomNumber();
+  return verifyNumber(numero, numeroSorteado);
 }
 
-console.log(newEmployee());
+console.log(checkSorteio(4,verifyNumber));
