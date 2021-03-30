@@ -18,3 +18,21 @@ const checkTestAnswers = (rightAnswers, userAnswers, checkAnswers) => {
 
 
 console.log(checkTestAnswers(['a','b','c','a'],['N.A','b','c','d'],checkAnswers));
+
+const newEmployees = () => {
+  const employees = {
+    id1: criaId('Pedro Guerra'),
+    id2: criaId('Luiza Drumond'),
+    id3: criaId('Carla Paiva'),
+  }
+  return employees;
+};
+
+const criaId = (nome) => {
+  return {
+    nomeCompleto: nome,
+    email: `${(nome.split(' ').join('_').toLowerCase())}@trybe.com`,
+  }
+}
+
+console.log(newEmployees());
