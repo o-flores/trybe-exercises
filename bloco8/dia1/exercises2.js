@@ -89,3 +89,4 @@ const turnResults = () => {
 }
 
 turnResults();
+turnResults();
