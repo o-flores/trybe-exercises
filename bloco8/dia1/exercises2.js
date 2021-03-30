@@ -69,9 +69,18 @@ const mageAttack = () => {
   mage.mana -= mageStats.manaSpent;
 }
 
+const dragonAttack = () => {
+  const dmgDone = getDragonDamage();
+  mage.healthPoints -= dmgDone;
+  warrior.healthPoints -= dmgDone;
+  dragon.damage = dmgDone;
+}
+
 const gameActions = {
   warriorTurn: warriorAttack(),
   mageTurn: mageAttack(),
+  dragonTurn: dragonAttack(),
+  battleMembers: battleMembers,
 }
 
-console.log(battleMembers);
+console.log(gameActions.battleMembers);
