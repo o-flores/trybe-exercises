@@ -1,3 +1,4 @@
+
 const mage = {
   healthPoints: 130,
   intelligence: 45,
@@ -19,6 +20,7 @@ const dragon = {
 };
 
 const battleMembers = { mage, warrior, dragon };
+console.log(battleMembers);
 
 // temos que adicionar o 1 na subtração pois o metodo Math.random() inclui o 0 mas exclui o 1
 const getRandomIntInclusive = (min, max) => {
@@ -82,5 +84,8 @@ const gameActions = {
   dragonTurn: dragonAttack(),
   battleMembers: battleMembers,
 }
+const turnResults = () => {
+  console.log(gameActions.battleMembers);
+}
 
-console.log(gameActions.battleMembers);
+turnResults();
