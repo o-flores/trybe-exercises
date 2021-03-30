@@ -20,9 +20,21 @@ const dragon = {
 
 const battleMembers = { mage, warrior, dragon };
 
-//Exercicio 1
-const returnDragonDamage = () => {
-  const max = dragon.strength;
-  const min = 15;
+// temos que adicionar o 1 na subtração pois o metodo Math.random() inclui o 0 mas exclui o 1
+const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+//Exercicio 1
+const getDragonDamage = () => {
+  const minDmg = 15;
+  const maxDmg = dragon.strength;
+  return getRandomIntInclusive(maxDmg, minDmg);
+}
+
+//Exercicio 2
+const getWarriorDamage = () => {
+  const minDmg = warrior.strength;
+  const maxDmg = minDmg * warrior.weaponDmg;
+  return getRandomIntInclusive(maxDmg, minDmg);
 }
