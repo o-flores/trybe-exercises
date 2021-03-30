@@ -54,3 +54,16 @@ const getMageDamageAndMana = () => {
   }
   return result
 }
+
+//Parte 2
+const warriorAttack = () => {
+  const dmgDone = getWarriorDamage();
+  dragon.healthPoints -= dmgDone;
+  warrior.damage = dmgDone;
+}
+
+const gameActions = {
+  warriorTurn: warriorAttack(),
+}
+
+console.log(battleMembers);
