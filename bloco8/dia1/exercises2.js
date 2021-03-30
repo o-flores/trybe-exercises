@@ -38,3 +38,19 @@ const getWarriorDamage = () => {
   const maxDmg = minDmg * warrior.weaponDmg;
   return getRandomIntInclusive(maxDmg, minDmg);
 }
+
+//Exercicio 3
+const getMageDamageAndMana = () => {
+  const minDmg = mage.intelligence;
+  const maxDmg = minDmg * 2;
+  const mana = mage.mana;
+  const result = {
+    manaSpent: 0,
+    dmgDone: 'Sem mana suficiente',
+  }
+  if (mana >= 15) {
+    result.manaSpent = 15;
+    result.dmgDone = getRandomIntInclusive(minDmg, maxDmg);
+  }
+  return result
+}
