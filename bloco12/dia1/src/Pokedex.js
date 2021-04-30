@@ -17,12 +17,12 @@ class Pokedex extends React.Component {
 
         this.nextPokemon = this.nextPokemon.bind(this);
         this.setPokemonType = this.setPokemonType.bind(this);
-        this.FilterPokemonsByType = this.FilterPokemonsByType.bind(this);
+        this.pokemonsFiltered = this.pokemonsFiltered.bind(this);
     }
 
 
     nextPokemon() {
-        if (this.state.index === this.FilterPokemonsByType().length - 1) {
+        if (this.state.index === this.pokemonsFiltered().length - 1) {
             this.setState(
                 {
                     index: 0,
@@ -44,14 +44,14 @@ class Pokedex extends React.Component {
         })
     }
 
-    FilterPokemonsByType() {
+    pokemonsFiltered() {
         const { filterType } = this.state
         if (this.state.filterType === 'All') return pokemons;
         return this.props.pokemons.filter((pokemon) => pokemon.type === filterType)
     }
 
     render() {
-        const { nextPokemon, setPokemonType, FilterPokemonsByType } = this;
+        const { nextPokemon, setPokemonType, pokemonsFiltered } = this;
         const { pokemons } = this.props;
         const { index } = this.state;
 
@@ -63,7 +63,7 @@ class Pokedex extends React.Component {
                 <div className="pokedex">
                     <Pokemon
                         key={pokemons.id}
-                        pokemon={FilterPokemonsByType()[index]} />
+                        pokemon={pokemonsFiltered()[index]} />
                 </div>
 
                 { pokemonTypes.map((type) => <Button key={type} onClick={setPokemonType} type={type}></Button>)}
@@ -71,7 +71,7 @@ class Pokedex extends React.Component {
                 <div>
                     <button
                         className='next-pokemon'
-                        disabled={FilterPokemonsByType().length <= 1}
+                        disabled={pokemonsFiltered().length <= 1}
                         onClick={nextPokemon}>
                         Próximo Pokemon
                     </button>
