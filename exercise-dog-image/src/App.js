@@ -7,32 +7,43 @@ class App extends React.Component {
     super();
     this.state = {
       dogObject: '',
+      name: '',
+      array: [],
     };
     this.fetchDog = this.fetchDog.bind(this);
+    this.saveDog = this.saveDog.bind(this);
+    this.onChangeDogName = this.onChangeDogName.bind(this);
   }
 
   componentDidMount() {
-    this.fetchDog();
+    if (localStorage.dogs) {
+      const dogsObject = JSON.parse(localStorage.dogs);
+      const lastDogMessage = dogsObject[dogsObject.length - 1].message;
+      this.setState({ dogObject: { message: lastDogMessage }, array: dogsObject });
+    } else {
+      this.fetchDog();
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.dogObject === '') {
-      return true;
-    }
     if (nextState.dogObject.message.includes('terrier')) {
       return false;
     }
     return true;
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     const { dogObject } = this.state;
-    // console.log(dogObject);
-    localStorage.setItem('dogURL', dogObject.message);
-    if (dogObject !== '') {
+    if (prevState.dogObject !== dogObject) {
       const breed = dogObject.message.split('/')[4];
       alert(breed);
     }
+  }
+
+  onChangeDogName(event) {
+    const { name } = this.state;
+    const { value } = event.target;
+    this.setState({ name: value });
   }
 
   async fetchDog() {
@@ -41,13 +52,27 @@ class App extends React.Component {
     this.setState({ dogObject: data });
   }
 
+  saveDog() {
+    const { name, array, dogObject: { message } } = this.state;
+    const dogInfo = { message, name };
+    const newArray = [...array, dogInfo];
+    this.setState({ name: '', array: newArray });
+    localStorage.setItem('dogs', JSON.stringify(newArray));
+  }
+
   render() {
     const { dogObject } = this.state;
     if (dogObject === '') return '...loading';
     return (
-      <div className="App">
-        <Dog object={ dogObject.message } onClick={ this.fetchDog } />
-        <button type="button" onClick={ this.fetchDog }>Next Dog</button>
+      <div>
+        <div className="App">
+          <Dog object={ dogObject.message } onClick={ this.fetchDog } />
+          <button type="button" onClick={ this.fetchDog }>Next Dog</button>
+        </div>
+        <div>
+          <input type="text" placeholder="digite um nome para o dog" onChange={ this.onChangeDogName } />
+          <button type="button" onClick={ this.saveDog }>Save Dog</button>
+        </div>
       </div>
     );
   }
