@@ -13,13 +13,14 @@ class App extends React.Component {
     this.fetchDog = this.fetchDog.bind(this);
     this.saveDog = this.saveDog.bind(this);
     this.onChangeDogName = this.onChangeDogName.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
   componentDidMount() {
     if (localStorage.dogs) {
       const dogsObject = JSON.parse(localStorage.dogs);
       const lastDogMessage = dogsObject[dogsObject.length - 1].message;
-      this.setState({ dogObject: { message: lastDogMessage }, array: dogsObject });
+      this.updateState(dogsObject, lastDogMessage);
     } else {
       this.fetchDog();
     }
@@ -41,9 +42,12 @@ class App extends React.Component {
   }
 
   onChangeDogName(event) {
-    const { name } = this.state;
     const { value } = event.target;
     this.setState({ name: value });
+  }
+
+  updateState(object, array) {
+    this.setState({ dogObject: { message: array }, array: object });
   }
 
   async fetchDog() {
