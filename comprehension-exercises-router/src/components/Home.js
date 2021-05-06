@@ -9,6 +9,7 @@ class Home extends Component {
         <p> My awesome Home component </p>
         <Link to='/users/1'>Users</Link>
         <Link to='/about'>About</Link>
+        <Link to='/strictaccess'>Strict</Link>
       </div>
     );
   }
