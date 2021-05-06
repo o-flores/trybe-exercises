@@ -70,11 +70,15 @@ class App extends React.Component {
     return (
       <div>
         <div className="App">
-          <Dog object={ dogObject.message } onClick={ this.fetchDog } />
+          <Dog image={ dogObject.message } onClick={ this.fetchDog } />
           <button type="button" onClick={ this.fetchDog }>Next Dog</button>
         </div>
         <div>
-          <input type="text" placeholder="digite um nome para o dog" onChange={ this.onChangeDogName } />
+          <input
+            type="text"
+            placeholder="digite um nome para o dog"
+            onChange={ this.onChangeDogName }
+          />
           <button type="button" onClick={ this.saveDog }>Save Dog</button>
         </div>
       </div>
