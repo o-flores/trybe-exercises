@@ -1,72 +1,91 @@
+
 import React from 'react';
-import Pokemon from './Pokemon';
 import Button from './Button';
-import './pokedex.css';
+import pokemons from './data';
+import Pokemon from './Pokemon';
+import './pokedex.css'
 
 class Pokedex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {pokemonIndex: 0, filteredType: 'all'};
-  }
 
-  filterPokemons(filteredType) {
-    this.setState({filteredType, pokemonIndex: 0});
-  }
+    constructor() {
 
-  nextPokemon(numberOfPokemons) {
-    this.setState(state => ({
-      pokemonIndex: (state.pokemonIndex + 1) % numberOfPokemons,
-    }));
-  }
+        super();
 
-  fetchFilteredPokemons() {
-    const {pokemons} = this.props;
-    const {filteredType} = this.state;
+        this.state = {
+            index: 0,
+            filterType: 'All',
+        }
 
-    return pokemons.filter(pokemon => {
-      if (filteredType === 'all') return true;
-      return pokemon.type === filteredType;
-    });
-  }
+        this.nextPokemon = this.nextPokemon.bind(this);
+        this.setPokemonType = this.setPokemonType.bind(this);
+        this.pokemonsFiltered = this.pokemonsFiltered.bind(this);
+    }
 
-  fetchPokemonTypes() {
-    const {pokemons} = this.props;
 
-    return [...new Set(pokemons.reduce((types, {type}) => [...types, type], []))];
-  }
+    nextPokemon() {
+        if (this.state.index === this.pokemonsFiltered().length - 1) {
+            this.setState(
+                {
+                    index: 0,
+                    filterType: this.state.filterType,
+                })
+        } else {
+            this.setState((initialState, _props) => ({
+                index: initialState.index + 1,
+                filterType: this.state.filterType,
+            }))
+        }
 
-  render() {
-    const filteredPokemons = this.fetchFilteredPokemons();
-    const pokemonTypes = this.fetchPokemonTypes();
-    const pokemon = filteredPokemons[this.state.pokemonIndex];
+    }
 
-    return (
-      <div className="pokedex">
-        <Pokemon pokemon={pokemon} />
-        <div className="pokedex-buttons-panel">
-          <Button
-            onClick={() => this.filterPokemons('all')}
-            className="filter-button">
-            All
-          </Button>
-          {pokemonTypes.map(type => (
-            <Button
-              key={type}
-              onClick={() => this.filterPokemons(type)}
-              className="filter-button">
-              {type}
-            </Button>
-          ))}
-        </div>
-        <Button
-          className="pokedex-button"
-          onClick={() => this.nextPokemon(filteredPokemons.length)}
-          disabled={filteredPokemons.length <= 1}>
-          Próximo pokémon
-        </Button>
-      </div>
-    );
-  }
+    setPokemonType(event) {
+        this.setState({
+            index: 0,
+            filterType: event.target.innerText,
+        })
+    }
+
+    pokemonsFiltered() {
+        const { filterType } = this.state
+        if (this.state.filterType === 'All') return pokemons;
+        return this.props.pokemons.filter((pokemon) => pokemon.type === filterType)
+    }
+
+    render() {
+        const { nextPokemon, setPokemonType, pokemonsFiltered } = this;
+        const { pokemons } = this.props;
+        const { index } = this.state;
+
+        const pokemonTypes = pokemons.reduce((types, { type }) =>
+            types.includes(type) ? types : [...types, type], ['All']);
+
+        return (
+            <div>
+                <div className="pokedex">
+                    <Pokemon
+                        key={pokemons.id}
+                        pokemon={pokemonsFiltered()[index]} />
+                </div>
+
+                { pokemonTypes.map((type) => <Button
+                    key={type}
+                    onClick={setPokemonType}
+                    type={type}>
+                </Button>)}
+
+                <div>
+                    <button
+                        className='next-pokemon'
+                        disabled={pokemonsFiltered().length <= 1}
+                        onClick={nextPokemon}>
+                        Próximo Pokemon
+                    </button>
+                </div>
+
+
+            </div>
+        );
+    }
 }
 
-export default Pokedex;
+export default Pokedex; 
