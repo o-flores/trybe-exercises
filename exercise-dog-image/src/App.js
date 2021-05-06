@@ -7,7 +7,6 @@ class App extends React.Component {
     super();
     this.state = {
       dogObject: '',
-      loading: true,
     };
     this.fetchDog = this.fetchDog.bind(this);
   }
@@ -16,18 +15,39 @@ class App extends React.Component {
     this.fetchDog();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.dogObject === '') {
+      return true;
+    }
+    if (nextState.dogObject.message.includes('terrier')) {
+      return false;
+    }
+    return true;
+  }
+
+  componentDidUpdate() {
+    const { dogObject } = this.state;
+    // console.log(dogObject);
+    localStorage.setItem('dogURL', dogObject.message);
+    if (dogObject !== '') {
+      const breed = dogObject.message.split('/')[4];
+      alert(breed);
+    }
+  }
+
   async fetchDog() {
-    this.setState({ loading: true });
     const response = await fetch('https://dog.ceo/api/breeds/image/random');
     const data = await response.json();
-    this.setState({ loading: false, dogObject: data });
+    this.setState({ dogObject: data });
   }
 
   render() {
-    const { loading, dogObject } = this.state;
+    const { dogObject } = this.state;
+    if (dogObject === '') return '...loading';
     return (
       <div className="App">
-        { loading ? '...loading' : <Dog object={ dogObject.message } onClick={ this.fetchDog } />}
+        <Dog object={ dogObject.message } onClick={ this.fetchDog } />
+        <button type="button" onClick={ this.fetchDog }>Next Dog</button>
       </div>
     );
   }
