@@ -1,0 +1,14 @@
+.locationsContainer {
+  display: flex;
+  justify-content: space-around;
+  max-width: 40%;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.locations {
+  width: 20%;
+  padding: 2rem;
+  margin: 1rem 2rem ;
+  background-color: red;
+}
