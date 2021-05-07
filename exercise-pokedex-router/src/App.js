@@ -15,7 +15,7 @@ function App() {
         <nav>
           <Link className='link' to='/'>HOME</Link>
           <Link className='link' to='/about'>ABOUT</Link>
-          {/* <Link className='link' to='/'>Home</Link> */}
+          <Link className='link' to='/favorites'>FAVORITES</Link>
         </nav>
         <Switch>
           <Route exact path="/about" >{About}</Route>

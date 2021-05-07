@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 class Pokemon extends React.Component {
   render() {
     const {name, type, averageWeight, image, id} = this.props.pokemon;
+    const { favorite } =  this.props;
     return (
       <div className="pokemon">
         <div>
@@ -15,6 +16,7 @@ class Pokemon extends React.Component {
           </p>
           <Link to={`/pokemon/${id}`}>Saiba mais</Link>
         </div>
+        {favorite && <p>Favorito</p>}
         <img src={image} alt={`${name} sprite`} />
       </div>
     );
