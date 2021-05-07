@@ -9,14 +9,14 @@ class PokemonDetails extends React.Component {
     const pokemon = pokemons.find((pokemon) => pokemon.id === parseInt(id));
     return (
       <div>
-        <h1>Pokemon Details</h1>
+        <h2>Pokemon Details</h2>
         <div className="pokedex">
           <Pokemon className="pokemon" pokemon={pokemon} />
         </div>
         <div className="summary">
-          <h2>Summary</h2>
+          <h3>Summary</h3>
           <p>{ pokemon.summary}</p>
-          <h2>Pokemon Locations</h2>
+          <h3>Pokemon Locations</h3>
           <PokemonLocations locations={ pokemon.foundAt }/>
         </div>
       </div>
