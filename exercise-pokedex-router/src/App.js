@@ -6,6 +6,7 @@ import About from './About'
 import NotFound from './NotFound'
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 import PokemonDetails from './PokemonDetails';
+import Favorites from './Favorites';
 
 class App extends React.Component {
   constructor(){
@@ -28,6 +29,7 @@ class App extends React.Component {
             <Route exact path="/about" >{About}</Route>
             <Route exact path="/pokemon/:id" render={(props) => <PokemonDetails {...props} pokemons={pokemons} />} />
             <Route exact path="/" render={() => <Pokedex pokemons={pokemons} />} />
+            <Route exact path='/favorites'component={Favorites}/>
             <Route path="*" component={NotFound} />
           </Switch>
         </div>

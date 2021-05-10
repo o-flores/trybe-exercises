@@ -66,9 +66,9 @@ class Pokedex extends React.Component {
     }
 
     verifyFavorite = (pokemonId) => {
-        const localStoragePokemons = JSON.parse(localStorage.getItem('favoritesPokemons'));
+        const localStoragePokemons = JSON.parse(localStorage.getItem('favoritesPokemons')) || [];
         const isFavorite = localStoragePokemons.some((pokemon) => pokemonId ===  pokemon.id);
-        return isFavorite;
+        return (isFavorite ? isFavorite : false);
     }
 
     render() {
