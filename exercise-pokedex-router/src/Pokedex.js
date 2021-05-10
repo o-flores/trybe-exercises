@@ -12,6 +12,7 @@ class Pokedex extends React.Component {
         super();
 
         this.state = {
+            pokemonId: 0,
             index: 0,
             filterType: 'All',
         }
@@ -21,50 +22,71 @@ class Pokedex extends React.Component {
         this.pokemonsFiltered = this.pokemonsFiltered.bind(this);
     }
 
+    componentDidMount() {
+        const { index } = this.state;
+        this.setState({
+            pokemonId: this.pokemonsFiltered()[index].id,
+        })
+    }
+
 
     nextPokemon() {
-        if (this.state.index === this.pokemonsFiltered().length - 1) {
+        const { index } = this.state;
+        if (index === this.pokemonsFiltered().length - 1) {
+            const pokemon = this.pokemonsFiltered()[0]
             this.setState(
                 {
                     index: 0,
-                    filterType: this.state.filterType,
+                    pokemonId: pokemon.id,
                 })
         } else {
-            this.setState((initialState, _props) => ({
+            const pokemon = this.pokemonsFiltered()[index +1 ]
+            this.setState((initialState) => ({
                 index: initialState.index + 1,
-                filterType: this.state.filterType,
+                pokemonId: pokemon.id,
             }))
         }
-
+    }
+    updatePokemonId = () => {
+        const pokemon = this.pokemonsFiltered()[0]
+        this.setState({ pokemonId: pokemon.id})
     }
 
     setPokemonType(event) {
         this.setState({
             index: 0,
             filterType: event.target.innerText,
-        })
+        }, () => this.updatePokemonId())
     }
 
     pokemonsFiltered() {
         const { filterType } = this.state
-        if (this.state.filterType === 'All') return pokemons;
+        if (filterType === 'All') return pokemons;
         return this.props.pokemons.filter((pokemon) => pokemon.type === filterType)
     }
 
-    render() {
-        const { nextPokemon, setPokemonType, pokemonsFiltered } = this;
-        const { pokemons } = this.props;
-        const { index } = this.state;
+    verifyFavorite = (pokemonId) => {
+        const localStoragePokemons = JSON.parse(localStorage.getItem('favoritesPokemons'));
+        const isFavorite = localStoragePokemons.some((pokemon) => pokemonId ===  pokemon.id);
+        return isFavorite;
+    }
 
+    render() {
+        const { nextPokemon, setPokemonType, pokemonsFiltered, verifyFavorite } = this;
+        const { pokemons } = this.props;
+        const { index, pokemonId } = this.state;
+        const pokemon = pokemonsFiltered()[index];
         const pokemonTypes = pokemons.reduce((types, { type }) =>
             types.includes(type) ? types : [...types, type], ['All']);
+        const isFavorite = verifyFavorite(pokemonId);
 
         return (
             <div>
                 <div className="pokedex">
                     <Pokemon
+                        favorite={ isFavorite }
                         key={pokemons.id}
-                        pokemon={pokemonsFiltered()[index]} />
+                        pokemon={pokemon} />
                 </div>
 
                 { pokemonTypes.map((type) => <Button
@@ -88,4 +110,4 @@ class Pokedex extends React.Component {
     }
 }
 
-export default Pokedex; 
+export default Pokedex;

@@ -1,11 +1,12 @@
 import React from 'react';
 import './pokemon.css';
 import { Link } from "react-router-dom";
+import { FaRegStar } from "react-icons/fa";
 
 class Pokemon extends React.Component {
   render() {
-    const {name, type, averageWeight, image, id} = this.props.pokemon;
-    const { favorite } =  this.props;
+    const { name, type, averageWeight, image, id } = this.props.pokemon;
+    const { favorite } = this.props;
     return (
       <div className="pokemon">
         <div>
@@ -16,8 +17,10 @@ class Pokemon extends React.Component {
           </p>
           <Link to={`/pokemon/${id}`}>Saiba mais</Link>
         </div>
-        {favorite && <p>Favorito</p>}
-        <img src={image} alt={`${name} sprite`} />
+        <div className='pokemon-images'>
+          {favorite && <p className='icon'><FaRegStar /></p>}
+          <img src={image} alt={`${name} sprite`} />
+        </div>
       </div>
     );
   }
