@@ -1,5 +1,6 @@
 import React from 'react';
-import redditAPI from '../services/redditAPI';
+import { getRedditPostsThunk } from '../actions'; 
+import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
   constructor() {
@@ -10,8 +11,9 @@ class SearchBar extends React.Component {
   }
 
   handleClick = async () => {
-    const data = await redditAPI('reactjs')
-    console.log(data.data.children);
+    const { text } = this.state;
+    const { fetchAPI } = this.props;
+    fetchAPI(text);
   }
 
   render() {
@@ -27,4 +29,8 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+const mapDispatchToProps = (dispatch) => ({
+  fetchAPI: (text) => dispatch(getRedditPostsThunk(text))
+})
+
+export default connect(null, mapDispatchToProps)(SearchBar);

@@ -16,7 +16,7 @@ const postsReducer = (state = INITIAL_STATE, action) => {
     case GET_REDDIT_POSTS_SUCCESS:
       return {
         ...state,
-        posts: action.payload,
+        posts: action.payload.data.children,
         loading: false,
       }
     case GET_REDDIT_POSTS_ERROR:
